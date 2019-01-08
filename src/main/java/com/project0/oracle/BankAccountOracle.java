@@ -27,7 +27,7 @@ public class BankAccountOracle implements BankAccountDao{
 		
 	}
 	
-	public BankAccountDao getDao() {
+	public static BankAccountDao getDao() {
 		log.traceEntry();
 		if (instance == null) {
 			instance = new BankAccountOracle();

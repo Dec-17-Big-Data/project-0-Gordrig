@@ -1,6 +1,7 @@
 package com.project0.main;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.project0.models.Bank_Account_Model;
 import com.project0.models.User_Model;
 import com.project0.services.BankAccountService;
 import com.project0.services.TransactionService;
@@ -24,6 +26,8 @@ public class Begin {
 	public static void main(String[] args) {
 		log.traceEntry();
 		
+		scan.useDelimiter(System.lineSeparator());
+		
 		boolean exit = false;
 		
 		// start application loop
@@ -34,9 +38,6 @@ public class Begin {
 			
 			exit = logout();
 		}
-		
-		//System.out.println(User_Model.getCurrent().toString());
-		scan.next();
 		
 		log.traceExit();
 	}
@@ -59,6 +60,7 @@ public class Begin {
 		}
 		User_Model um = us.getUsers().get().get(0);
 		User_Model.setCurrent(um);
+		System.out.println("Login successful");
 		return;
 	}
 	
@@ -72,16 +74,20 @@ public class Begin {
 	}
 	
 	private static void application() {
+		log.traceEntry();
 		while(true) {
+
+			System.out.println("MAIN MENU");
+			System.out.println("--------------------------------");
 			System.out.println("What would you like to do?");
 			System.out.println("(view accounts/view transactions/logout)");
 			String input = scan.next();
 			
 			if (input.equals("view accounts")) {
-				
+				accounts();
 				continue;
 			} else if (input.equals("view transactions")) {
-				
+				transactions();
 				continue;
 			} else if (input.equals("logout")) {
 				break;
@@ -90,6 +96,114 @@ public class Begin {
 				continue;
 			}
 		}
+		log.traceExit();
 		return;
 	}
+	
+	private static void accounts() {
+		log.traceEntry();
+		while(true){
+			List<Bank_Account_Model> lbam = bas.getAccounts().get();
+			String options = "";
+			options += "(";
+			int i = 0;
+			List<Integer> ilist = new ArrayList<Integer>();
+			boolean found = false;
+			for (Bank_Account_Model bam : lbam) {
+				i++;
+				options += "account ";
+				options += i;
+				options += "/";
+			}
+			
+			options += "create account/";
+			options += "back)";
+			
+			System.out.println("ACCOUNTS MENU");
+			System.out.println("--------------------------------");
+			System.out.println("What would you like to do?");
+			System.out.println(options);
+			
+			String input = scan.next();
+			
+			for (Integer j: ilist) {
+				if (input.equals("Account " + j)) {
+					manageAccount(lbam.get(j));
+					found = true;
+				}
+			}
+			
+			if (input.equals("create account")) {
+				createAccount();
+				continue;
+			} else if (input.equals("back")) {
+				break;
+			}
+			
+			if (!found) {
+				System.out.println("Invalid input");
+			}
+		}
+		log.traceExit();
+		return;
+	}
+	
+	private static void manageAccount(Bank_Account_Model bam) {
+		log.traceEntry();
+		while(true) {
+			System.out.println("ACCOUNT MANAGEMENT");
+			System.out.println("--------------------------------");
+			System.out.println("What would you like to do?");
+			System.out.println("(back)");
+			String input = scan.next();
+			
+			if (input.equals("back")) {
+				break;
+			} else {
+				System.out.println("Invalid input");
+			}
+			
+		}
+		log.traceExit();
+		return;
+	}
+	
+	private static void transactions() {
+		log.traceEntry();
+		while(true) {
+			System.out.println("ALL TRANSACTIONS");
+			System.out.println("--------------------------------");
+			System.out.println("What would you like to do?");
+			System.out.println("(back)");
+			String input = scan.next();
+			
+			if (input.equals("back")) {
+				break;
+			} else {
+				System.out.println("Invalid input");
+			}
+		}
+		log.traceExit();
+		return;
+	}
+	
+	private static void createAccount() {
+		log.traceEntry();
+		while(true) {
+			System.out.println("ACCOUNT CREATION");
+			System.out.println("--------------------------------");
+			System.out.println("What would you like to do?");
+			System.out.println("(back)");
+			String input = scan.next();
+			
+			if (input.equals("back")) {
+				break;
+			} else {
+				System.out.println("Invalid input");
+			}
+		}
+		log.traceExit();
+		return;
+	}
+	
 }

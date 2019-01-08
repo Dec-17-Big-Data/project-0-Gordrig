@@ -1702,3 +1702,164 @@ ORA-06512: at line 1
 [TRACE] 2019-01-08 11:17:52.320 [main] User_Model - Exit with(User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true])
 [TRACE] 2019-01-08 11:17:52.320 [main] UserService - Exit with(Optional[[User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true], User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true]]])
 [TRACE] 2019-01-08 11:18:00.608 [main] Begin - Exit
+[TRACE] 2019-01-08 15:00:28.092 [main] UserService - Enter
+[TRACE] 2019-01-08 15:00:28.105 [main] UserOracle - Enter
+[TRACE] 2019-01-08 15:00:28.106 [main] UserOracle - Exit with(com.project0.oracle.UserOracle@32eff876)
+[TRACE] 2019-01-08 15:00:28.107 [main] UserService - Exit with(com.project0.services.UserService@6aba2b86)
+[TRACE] 2019-01-08 15:00:28.107 [main] BankAccountService - Enter
+[TRACE] 2019-01-08 15:00:28.108 [main] BankAccountService - Exit with(com.project0.services.BankAccountService@158da8e)
+[TRACE] 2019-01-08 15:00:28.108 [main] BankAccountService - Enter
+[TRACE] 2019-01-08 15:00:28.109 [main] BankAccountService - Exit with(com.project0.services.TransactionService@74e52303)
+[TRACE] 2019-01-08 15:00:28.111 [main] Begin - Enter
+[TRACE] 2019-01-08 15:00:40.684 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:00:40.684 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:00:40.685 [main] UserService - Enter
+[TRACE] 2019-01-08 15:00:40.685 [main] UserOracle - Enter
+[TRACE] 2019-01-08 15:00:40.686 [main] ConnectionUtil - Enter
+[TRACE] 2019-01-08 15:00:41.842 [main] ConnectionUtil - Exit with(oracle.jdbc.driver.T4CConnection@6f03482)
+[TRACE] 2019-01-08 15:00:41.842 [main] ConnectionUtil - Exit
+[TRACE] 2019-01-08 15:00:42.216 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:00:42.217 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:00:42.217 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:00:42.217 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:00:42.218 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:00:42.218 [main] User_Model - Exit with(User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:00:42.219 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:00:42.219 [main] User_Model - Exit with(User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:00:42.219 [main] UserOracle - Exit with(Optional[[User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true], User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true]]])
+[TRACE] 2019-01-08 15:00:42.219 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:00:42.220 [main] User_Model - Exit with(User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:00:42.220 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:00:42.220 [main] User_Model - Exit with(User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:00:42.221 [main] UserService - Exit with(Optional[[User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true], User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true]]])
+[TRACE] 2019-01-08 15:45:39.131 [main] UserService - Enter
+[TRACE] 2019-01-08 15:45:39.139 [main] UserOracle - Enter
+[TRACE] 2019-01-08 15:45:39.140 [main] UserOracle - Exit with(com.project0.oracle.UserOracle@32eff876)
+[TRACE] 2019-01-08 15:45:39.141 [main] UserService - Exit with(com.project0.services.UserService@6aba2b86)
+[TRACE] 2019-01-08 15:45:39.142 [main] BankAccountService - Enter
+[TRACE] 2019-01-08 15:45:39.143 [main] BankAccountOracle - Enter
+[TRACE] 2019-01-08 15:45:39.143 [main] BankAccountOracle - Exit with(com.project0.oracle.BankAccountOracle@158da8e)
+[TRACE] 2019-01-08 15:45:39.143 [main] BankAccountService - Exit with(com.project0.services.BankAccountService@74e52303)
+[TRACE] 2019-01-08 15:45:39.144 [main] BankAccountService - Enter
+[TRACE] 2019-01-08 15:45:39.144 [main] BankAccountService - Exit with(com.project0.services.TransactionService@47af7f3d)
+[TRACE] 2019-01-08 15:45:39.147 [main] Begin - Enter
+[TRACE] 2019-01-08 15:45:47.563 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:45:47.563 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:45:47.563 [main] UserService - Enter
+[TRACE] 2019-01-08 15:45:47.563 [main] UserOracle - Enter
+[TRACE] 2019-01-08 15:45:47.564 [main] ConnectionUtil - Enter
+[TRACE] 2019-01-08 15:45:48.900 [main] ConnectionUtil - Exit with(oracle.jdbc.driver.T4CConnection@9d5509a)
+[TRACE] 2019-01-08 15:45:48.900 [main] ConnectionUtil - Exit
+[TRACE] 2019-01-08 15:45:49.430 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:45:49.430 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:45:49.431 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:45:49.431 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:45:49.432 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:45:49.432 [main] User_Model - Exit with(User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:45:49.432 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:45:49.433 [main] User_Model - Exit with(User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:45:49.433 [main] UserOracle - Exit with(Optional[[User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true], User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true]]])
+[TRACE] 2019-01-08 15:45:49.434 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:45:49.434 [main] User_Model - Exit with(User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:45:49.434 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:45:49.434 [main] User_Model - Exit with(User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:45:49.435 [main] UserService - Exit with(Optional[[User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true], User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true]]])
+[TRACE] 2019-01-08 15:45:49.435 [main] Begin - Enter
+[TRACE] 2019-01-08 15:45:57.951 [main] Begin - Enter
+[TRACE] 2019-01-08 15:45:57.952 [main] BankAccountService - Enter
+[TRACE] 2019-01-08 15:45:57.952 [main] BankAccountOracle - Enter
+[TRACE] 2019-01-08 15:45:57.952 [main] ConnectionUtil - Enter
+[TRACE] 2019-01-08 15:45:58.730 [main] ConnectionUtil - Exit with(oracle.jdbc.driver.T4CConnection@2438dcd)
+[TRACE] 2019-01-08 15:45:58.730 [main] ConnectionUtil - Exit
+[TRACE] 2019-01-08 15:46:01.722 [main] BankAccountOracle - Exit with(Optional[[]])
+[TRACE] 2019-01-08 15:46:01.722 [main] BankAccountService - Exit with(Optional[[]])
+[TRACE] 2019-01-08 15:48:03.096 [main] UserService - Enter
+[TRACE] 2019-01-08 15:48:03.104 [main] UserOracle - Enter
+[TRACE] 2019-01-08 15:48:03.105 [main] UserOracle - Exit with(com.project0.oracle.UserOracle@32eff876)
+[TRACE] 2019-01-08 15:48:03.106 [main] UserService - Exit with(com.project0.services.UserService@6aba2b86)
+[TRACE] 2019-01-08 15:48:03.106 [main] BankAccountService - Enter
+[TRACE] 2019-01-08 15:48:03.107 [main] BankAccountOracle - Enter
+[TRACE] 2019-01-08 15:48:03.108 [main] BankAccountOracle - Exit with(com.project0.oracle.BankAccountOracle@158da8e)
+[TRACE] 2019-01-08 15:48:03.108 [main] BankAccountService - Exit with(com.project0.services.BankAccountService@74e52303)
+[TRACE] 2019-01-08 15:48:03.109 [main] BankAccountService - Enter
+[TRACE] 2019-01-08 15:48:03.109 [main] BankAccountService - Exit with(com.project0.services.TransactionService@47af7f3d)
+[TRACE] 2019-01-08 15:48:03.112 [main] Begin - Enter
+[TRACE] 2019-01-08 15:48:15.152 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:48:15.153 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:48:15.153 [main] UserService - Enter
+[TRACE] 2019-01-08 15:48:15.153 [main] UserOracle - Enter
+[TRACE] 2019-01-08 15:48:15.154 [main] ConnectionUtil - Enter
+[TRACE] 2019-01-08 15:48:15.853 [main] ConnectionUtil - Exit with(oracle.jdbc.driver.T4CConnection@9d5509a)
+[TRACE] 2019-01-08 15:48:15.853 [main] ConnectionUtil - Exit
+[TRACE] 2019-01-08 15:48:16.157 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:48:16.158 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:48:16.158 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:48:16.158 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:48:16.159 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:48:16.159 [main] User_Model - Exit with(User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:48:16.159 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:48:16.159 [main] User_Model - Exit with(User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:48:16.159 [main] UserOracle - Exit with(Optional[[User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true], User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true]]])
+[TRACE] 2019-01-08 15:48:16.160 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:48:16.160 [main] User_Model - Exit with(User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:48:16.160 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:48:16.160 [main] User_Model - Exit with(User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:48:16.160 [main] UserService - Exit with(Optional[[User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true], User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true]]])
+[TRACE] 2019-01-08 15:48:16.161 [main] Begin - Enter
+[TRACE] 2019-01-08 15:48:22.623 [main] Begin - Enter
+[TRACE] 2019-01-08 15:48:31.182 [main] Begin - Exit
+[TRACE] 2019-01-08 15:49:53.489 [main] UserService - Enter
+[TRACE] 2019-01-08 15:49:53.496 [main] UserOracle - Enter
+[TRACE] 2019-01-08 15:49:53.497 [main] UserOracle - Exit with(com.project0.oracle.UserOracle@32eff876)
+[TRACE] 2019-01-08 15:49:53.497 [main] UserService - Exit with(com.project0.services.UserService@6aba2b86)
+[TRACE] 2019-01-08 15:49:53.498 [main] BankAccountService - Enter
+[TRACE] 2019-01-08 15:49:53.499 [main] BankAccountOracle - Enter
+[TRACE] 2019-01-08 15:49:53.499 [main] BankAccountOracle - Exit with(com.project0.oracle.BankAccountOracle@158da8e)
+[TRACE] 2019-01-08 15:49:53.500 [main] BankAccountService - Exit with(com.project0.services.BankAccountService@74e52303)
+[TRACE] 2019-01-08 15:49:53.500 [main] BankAccountService - Enter
+[TRACE] 2019-01-08 15:49:53.501 [main] BankAccountService - Exit with(com.project0.services.TransactionService@47af7f3d)
+[TRACE] 2019-01-08 15:49:53.504 [main] Begin - Enter
+[TRACE] 2019-01-08 15:50:23.311 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:50:23.312 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:50:23.312 [main] UserService - Enter
+[TRACE] 2019-01-08 15:50:23.312 [main] UserOracle - Enter
+[TRACE] 2019-01-08 15:50:23.313 [main] ConnectionUtil - Enter
+[TRACE] 2019-01-08 15:50:24.116 [main] ConnectionUtil - Exit with(oracle.jdbc.driver.T4CConnection@9d5509a)
+[TRACE] 2019-01-08 15:50:24.116 [main] ConnectionUtil - Exit
+[TRACE] 2019-01-08 15:50:24.466 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:50:24.466 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:50:24.466 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:50:24.466 [main] User_Model - Exit
+[TRACE] 2019-01-08 15:50:24.467 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:50:24.467 [main] User_Model - Exit with(User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:50:24.467 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:50:24.468 [main] User_Model - Exit with(User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:50:24.468 [main] UserOracle - Exit with(Optional[[User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true], User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true]]])
+[TRACE] 2019-01-08 15:50:24.468 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:50:24.469 [main] User_Model - Exit with(User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:50:24.469 [main] User_Model - Enter
+[TRACE] 2019-01-08 15:50:24.469 [main] User_Model - Exit with(User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true])
+[TRACE] 2019-01-08 15:50:24.469 [main] UserService - Exit with(Optional[[User_Model [userID=1, userName=firstname, password=password, superUser=false, activated=true], User_Model [userID=2, userName=firstuser, password=password, superUser=false, activated=true]]])
+[TRACE] 2019-01-08 15:50:24.470 [main] Begin - Enter
+[TRACE] 2019-01-08 15:50:32.418 [main] Begin - Enter
+[TRACE] 2019-01-08 15:50:36.722 [main] Begin - Exit
+[TRACE] 2019-01-08 15:50:41.143 [main] Begin - Enter
+[TRACE] 2019-01-08 15:50:41.143 [main] BankAccountService - Enter
+[TRACE] 2019-01-08 15:50:41.143 [main] BankAccountOracle - Enter
+[TRACE] 2019-01-08 15:50:41.144 [main] ConnectionUtil - Enter
+[TRACE] 2019-01-08 15:50:41.314 [main] ConnectionUtil - Exit with(oracle.jdbc.driver.T4CConnection@2438dcd)
+[TRACE] 2019-01-08 15:50:41.314 [main] ConnectionUtil - Exit
+[TRACE] 2019-01-08 15:50:41.344 [main] BankAccountOracle - Exit with(Optional[[]])
+[TRACE] 2019-01-08 15:50:41.344 [main] BankAccountService - Exit with(Optional[[]])
+[TRACE] 2019-01-08 15:50:49.114 [main] Begin - Enter
+[TRACE] 2019-01-08 15:50:52.836 [main] Begin - Exit
+[TRACE] 2019-01-08 15:50:52.836 [main] BankAccountService - Enter
+[TRACE] 2019-01-08 15:50:52.836 [main] BankAccountOracle - Enter
+[TRACE] 2019-01-08 15:50:52.837 [main] ConnectionUtil - Enter
+[TRACE] 2019-01-08 15:50:53.044 [main] ConnectionUtil - Exit with(oracle.jdbc.driver.T4CConnection@24105dc5)
+[TRACE] 2019-01-08 15:50:53.045 [main] ConnectionUtil - Exit
+[TRACE] 2019-01-08 15:50:53.101 [main] BankAccountOracle - Exit with(Optional[[]])
+[TRACE] 2019-01-08 15:50:53.101 [main] BankAccountService - Exit with(Optional[[]])
+[TRACE] 2019-01-08 15:50:55.252 [main] Begin - Exit
+[TRACE] 2019-01-08 15:50:57.856 [main] Begin - Exit
+[TRACE] 2019-01-08 15:51:04.506 [main] Begin - Exit

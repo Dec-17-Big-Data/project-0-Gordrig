@@ -10,7 +10,7 @@ create table person (
 create table bankaccount (
     accountid       number(20)      primary key,
     owner           number(20)      ,
-    balance         number(20,2)    not null check (balance >= 0),
+    balance         number(20,2)    not null check (balance >= 0.00),
     activated       number(1)       default 1 check(activated >=0) check (activated <= 1),
     
     constraint ownerConstraint foreign key (owner) references person(userid)
@@ -26,8 +26,7 @@ create table transaction (
     amount          number(20,2)    not null check (amount >= 0),
     
     constraint userConstraint foreign key (person) references person(userid),
-    constraint account1Constraint foreign key (account1) references bankaccount(accountid),
-    constraint account2Constraint foreign key (account2) references bankaccount(accountid)
+    constraint account1Constraint foreign key (account1) references bankaccount(accountid)
 );
 
 -- sequences
@@ -68,7 +67,7 @@ BEGIN
 END;
 /
 CREATE OR REPLACE TRIGGER transaction_seq_trigger 
-BEFORE INSERT ON transaction
+BEFORE INSERT ON crushadmin.transaction
 FOR EACH ROW
 BEGIN 
     --IF :new.transactionid IS NULL THEN
@@ -77,7 +76,7 @@ BEGIN
 END;  
 /
 create or replace trigger transaction_logic
-before insert on transaction
+after insert on crushadmin.transaction
 for each row
 begin
     if :new.action = 0 then
@@ -121,7 +120,7 @@ end;
         
         
     */
-    
+    /
     create or replace procedure insert_user(uname in varchar2, provpw in varchar2)
     is
     begin
@@ -131,14 +130,20 @@ end;
     create or replace procedure insert_account(uid in number)
     is
     begin
-        insert into bankaccount (accountid, owner) values (0, uid);
+        insert into bankaccount (accountid, owner, balance) values (0, uid, 0.00);
+    end;
+    /
+    create or replace procedure disable_account(accountid2 in number)
+    is
+    begin
+        update bankaccount set bankaccount.activated = 0 where bankaccount.accountid = accountid2;
     end;
     /
     create or replace procedure insert_transactiondw(uid in number, transaction_type in number, account1 in number, amount in number)
     is
     begin
         if (transaction_type = 1 or transaction_type = 2) then
-            insert into transaction (transactionid, person, account1, action, amount) values (0, uid, account1, transaction_type, amount);
+            insert into crushadmin.transaction (transactionid, person, account1, action, amount) values (0, uid, account1, transaction_type, amount);
         end if;
     end;
     /
@@ -146,7 +151,7 @@ end;
     is
     begin
         if (transaction_type = 3) then
-            insert into transaction (transactionid, person, account1, account2, action, amount) values (0, uid, account1, account2, transaction_type, amount);
+            insert into crushadmin.transaction (transactionid, person, account1, account2, action, amount) values (0, uid, account1, account2, transaction_type, amount);
         end if;
     end;
     /
@@ -154,7 +159,7 @@ end;
     is
     doesitexist number;
     begin
-        select count(*) into doesitexist from person where uname = username and provpw = pw;
+        select count(*) into doesitexist from person where uname = username and provpw = pw and activated = 1;
         if (doesitexist > 0) then
             accepted := 1;
         else
@@ -166,7 +171,7 @@ end;
     is
     doesitexist number;
     begin  
-        select count(*) into doesitexist from person where uname = username and provpw = pw;
+        select count(*) into doesitexist from person where uname = username and provpw = pw and super = 1;
         if (doesitexist > 0) then
             super := 1;
         else
@@ -215,7 +220,7 @@ end;
             if (super > 0) then
                 open rs for select * from bankaccount;
             else
-                open rs for select * from bankaccount where uname = (select person.username from person join bankaccount on bankaccount.owner = person.userid);
+                open rs for select * from bankaccount where activated = 1 and bankaccount.owner = (select person.userid from person where uname = person.username);
             end if;
         end if;
     end;
@@ -264,3 +269,4 @@ end;
         end if;
     end;
     /
+    commit;

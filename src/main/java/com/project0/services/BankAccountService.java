@@ -43,5 +43,12 @@ public class BankAccountService {
 		log.traceExit();
 		return;
 	}
+	
+	public void deleteAccount(long accountid) {
+		log.traceEntry();
+		dao.deleteAccount(accountid);
+		log.traceExit();
+		return;
+	}
 
 }

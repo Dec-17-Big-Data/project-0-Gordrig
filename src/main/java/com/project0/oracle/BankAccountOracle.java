@@ -56,7 +56,7 @@ public class BankAccountOracle implements BankAccountDao{
 			
 			ResultSet rs;
 			
-			CallableStatement cs = con.prepareCall("{call get_all_accounts(?,?, ?)}");
+			CallableStatement cs = con.prepareCall("{call get_all_accounts(?,?,?)}");
 			cs.setString(1, User_Model.getCurrent().getUserName());
 			cs.setString(2, User_Model.getCurrent().getPassword());
 			cs.registerOutParameter(3, OracleTypes.CURSOR);
@@ -161,6 +161,41 @@ public class BankAccountOracle implements BankAccountDao{
 			log.error("SQL exception occurred", e);
 		}
 		
+		log.traceExit();
+		return;
+	}
+
+	public void deleteAccount(long accountid) {
+		// TODO Auto-generated method stub
+		log.traceEntry();
+		
+		Connection con = null;
+		
+		try {
+			con = ConnectionUtil.getConnection();
+		} catch (Exception e) {
+			log.catching(e);
+			log.traceExit();
+		}
+		
+		if (con == null) {
+			log.traceExit();
+			return;
+		}
+		
+		try {
+			CallableStatement cs = con.prepareCall("{call disable_account(?)}");
+			cs.setLong(1, accountid);
+			
+			cs.execute();
+			
+			log.traceExit();
+			return;
+		} catch (SQLException e) {
+			log.catching(e);
+			log.error("SQL exception occurred", e);
+		}
+				
 		log.traceExit();
 		return;
 	}

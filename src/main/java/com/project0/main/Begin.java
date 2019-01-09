@@ -102,12 +102,20 @@ public class Begin {
 	private static void accounts() {
 		log.traceEntry();
 		while(true){
-			List<Bank_Account_Model> lbam = bas.getAccounts().get();
+			List<Bank_Account_Model> lbam;
+			try {
+				lbam = bas.getAccounts().get();
+			}
+			catch (Exception e) {
+				log.catching(e);
+				lbam = new ArrayList<Bank_Account_Model>();
+			}
 			String options = "";
 			options += "(";
 			Integer i = 0;
 			List<Integer> ilist = new ArrayList<Integer>();
 			boolean found = false;
+			
 			for (Bank_Account_Model bam : lbam) {
 				i++;
 				ilist.add(i);
@@ -117,6 +125,9 @@ public class Begin {
 			}
 			
 			options += "create account/";
+			if (i > 0) {
+				//options += "delete account/";
+			}
 			options += "back)";
 			
 			System.out.println("ACCOUNTS MENU");
@@ -154,8 +165,11 @@ public class Begin {
 		while(true) {
 			System.out.println("ACCOUNT MANAGEMENT");
 			System.out.println("--------------------------------");
+			System.out.println("Account ID: " + bam.getBankAccountID());
+			System.out.println("Balance: " + bam.getBalance());
+			System.out.println("--------------------------------");
 			System.out.println("What would you like to do?");
-			System.out.println("(deposit/withdraw/transfer/back)");
+			System.out.println("(deposit/withdraw/transfer/delete/back)");
 			String input = scan.next();
 			if (input.equals("deposit")) {
 				createTransaction(Transaction_Model.Action.DEPOSIT, bam);
@@ -163,6 +177,13 @@ public class Begin {
 				createTransaction(Transaction_Model.Action.WITHDRAWAL, bam);
 			} else if (input.equals("transfer")) {
 				createTransaction(Transaction_Model.Action.TRANSFER, bam);
+			} else if (input.equals("delete")) {
+				if (bam.getBalance() == 0) {
+				deleteAccount(bam.getBankAccountID());
+				return;
+				} else {
+					System.out.println("Please empty the account of all funds before deletion.");
+				}
 			} else if (input.equals("back")) {
 				break;
 			} else {
@@ -289,6 +310,14 @@ public class Begin {
 		log.traceEntry();
 		bas.createAccount();
 		System.out.println("New account created.");
+		log.traceExit();
+		return;
+	}
+	
+	private static void deleteAccount(long accountid) {
+		log.traceEntry();
+		System.out.println();
+		bas.deleteAccount(accountid);
 		log.traceExit();
 		return;
 	}

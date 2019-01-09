@@ -9,7 +9,8 @@ public class Transaction_Model {
 
 	private static final Logger log = LogManager.getLogger(Transaction_Model.class);
 	
-	private long transactionID, user, account1, account2, amount;
+	private long transactionID, user, account1, account2; 
+	private double amount;
 	private Timestamp timeOfTransaction;
 	public enum Action {DEPOSIT , WITHDRAWAL , TRANSFER} 
 	private Action action;
@@ -22,9 +23,7 @@ public class Transaction_Model {
 		log.traceExit();
 	}
 
-	
-
-	public Transaction_Model(long transactionID, long user, long account1, long account2, long amount,
+	public Transaction_Model(long transactionID, long user, long account1, long account2, double amount,
 			Timestamp timeOfTransaction, Action action) {
 		super();
 		log.traceEntry();
@@ -72,11 +71,11 @@ public class Transaction_Model {
 		this.account2 = account2;
 	}
 
-	public long getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(long amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
@@ -108,7 +107,9 @@ public class Transaction_Model {
 		result = prime * result + (int) (account1 ^ (account1 >>> 32));
 		result = prime * result + (int) (account2 ^ (account2 >>> 32));
 		result = prime * result + ((action == null) ? 0 : action.hashCode());
-		result = prime * result + (int) (amount ^ (amount >>> 32));
+		long temp;
+		temp = Double.doubleToLongBits(amount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((timeOfTransaction == null) ? 0 : timeOfTransaction.hashCode());
 		result = prime * result + (int) (transactionID ^ (transactionID >>> 32));
 		result = prime * result + (int) (user ^ (user >>> 32));
@@ -131,7 +132,7 @@ public class Transaction_Model {
 			return log.traceExit(false);
 		if (action != other.action)
 			return log.traceExit(false);
-		if (amount != other.amount)
+		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
 			return log.traceExit(false);
 		if (timeOfTransaction == null) {
 			if (other.timeOfTransaction != null)

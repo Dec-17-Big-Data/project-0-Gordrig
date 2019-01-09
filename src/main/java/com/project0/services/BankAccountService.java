@@ -36,5 +36,12 @@ public class BankAccountService {
 		log.traceExit(op);
 		return op;
 	}
+	
+	public void createAccount() {
+		log.traceEntry();
+		dao.createAccount();
+		log.traceExit();
+		return;
+	}
 
 }

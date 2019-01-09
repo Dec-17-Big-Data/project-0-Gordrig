@@ -8,4 +8,5 @@ import com.project0.models.Bank_Account_Model;
 public interface BankAccountDao {
 	Optional<List<Bank_Account_Model>> getAllAccounts();
 	Optional<List<Bank_Account_Model>> getAccountsOfUser(long userID);
+	void createAccount();
 }

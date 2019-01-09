@@ -7,7 +7,8 @@ public class Bank_Account_Model {
 
 	private static final Logger log = LogManager.getLogger(Bank_Account_Model.class);
 	
-	private long bankAccountID, owner, balance;
+	private long bankAccountID, owner;
+	private Double balance;
 	private Boolean activated;
 	
 	public Bank_Account_Model() {
@@ -19,7 +20,7 @@ public class Bank_Account_Model {
 
 	
 
-	public Bank_Account_Model(long bankAccountID, long owner, long balance, Boolean activated) {
+	public Bank_Account_Model(long bankAccountID, long owner, double balance, Boolean activated) {
 		super();
 		log.traceEntry();
 		this.bankAccountID = bankAccountID;
@@ -47,11 +48,11 @@ public class Bank_Account_Model {
 		this.owner = owner;
 	}
 
-	public long getBalance() {
+	public double getBalance() {
 		return balance;
 	}
 
-	public void setBalance(long balance) {
+	public void setBalance(double balance) {
 		this.balance = balance;
 	}
 
@@ -73,10 +74,11 @@ public class Bank_Account_Model {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((activated == null) ? 0 : activated.hashCode());
-		result = prime * result + (int) (balance ^ (balance >>> 32));
+		result = prime * result + ((balance == null) ? 0 : balance.hashCode());
 		result = prime * result + (int) (bankAccountID ^ (bankAccountID >>> 32));
 		result = prime * result + (int) (owner ^ (owner >>> 32));
-		return log.traceExit(result);
+		log.traceExit(result);
+		return result;
 	}
 
 	@Override
@@ -94,7 +96,10 @@ public class Bank_Account_Model {
 				return log.traceExit(false);
 		} else if (!activated.equals(other.activated))
 			return log.traceExit(false);
-		if (balance != other.balance)
+		if (balance == null) {
+			if (other.balance != null)
+				return log.traceExit(false);
+		} else if (!balance.equals(other.balance))
 			return log.traceExit(false);
 		if (bankAccountID != other.bankAccountID)
 			return log.traceExit(false);

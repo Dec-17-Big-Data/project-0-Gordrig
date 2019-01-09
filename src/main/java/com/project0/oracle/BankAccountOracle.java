@@ -24,7 +24,6 @@ public class BankAccountOracle implements BankAccountDao{
 	private static final Logger log = LogManager.getLogger(BankAccountOracle.class);
 	
 	private BankAccountOracle() {
-		
 	}
 	
 	public static BankAccountDao getDao() {
@@ -129,7 +128,40 @@ public class BankAccountOracle implements BankAccountDao{
 		
 		log.traceExit(Optional.empty());
 		return Optional.empty();
-
 	}
-
+	
+	
+	public void createAccount() {
+		log.traceEntry();
+		
+		Connection con = null;
+		
+		try {
+			con = ConnectionUtil.getConnection();
+		} catch (Exception e) {
+			log.catching(e);
+			log.traceExit();
+		}
+		
+		if (con == null) {
+			log.traceExit();
+			return;
+		}
+		
+		try {
+			CallableStatement cs = con.prepareCall("{call insert_account(?)}");
+			cs.setLong(1, User_Model.getCurrent().getUserID());
+			
+			cs.execute();
+			
+			log.traceExit();
+			return;
+		} catch (SQLException e) {
+			log.catching(e);
+			log.error("SQL exception occurred", e);
+		}
+		
+		log.traceExit();
+		return;
+	}
 }

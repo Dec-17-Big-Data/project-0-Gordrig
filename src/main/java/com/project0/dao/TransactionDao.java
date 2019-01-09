@@ -9,5 +9,7 @@ public interface TransactionDao {
 	Optional<List<Transaction_Model>> getAllTransactions();
 	Optional<List<Transaction_Model>> getAllTransactionsOfUser(long userID);
 	
+
+	void createTransaction(Transaction_Model.Action type, long account1, double amount);
 	void createTransaction(Transaction_Model.Action type, long account1, long account2, double amount);
 }
